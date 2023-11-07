@@ -5,6 +5,11 @@ const VPlayer = () => {
 	const videoRef = useRef();
 	const canvasRef = useRef();
 	const [isPlaying, setIsPlaying] = useState(false);
+	const [videoMetadata, setVideoMetadata] = useState({
+		duration: 0,
+		width: 0,
+		height: 0,
+	});
 
 	const loadVideo = (event) => {
 		const file = event.target.files[0];
@@ -13,10 +18,13 @@ const VPlayer = () => {
 			const videoURL = URL.createObjectURL(file);
 			videoRef.current.src = videoURL;
 
-			// Update video metadata (duration)
+			// Update video metadata (duration, width, height, codec)
 			videoRef.current.onloadedmetadata = () => {
-				console.log('Video duration:', videoRef.current.duration);
-				// You can display the duration on the UI as needed
+				const duration = videoRef.current.duration;
+				const width = videoRef.current.videoWidth;
+				const height = videoRef.current.videoHeight;
+
+				setVideoMetadata({ duration, width, height });
 			};
 		}
 	};
@@ -39,9 +47,12 @@ const VPlayer = () => {
 					<video ref={videoRef} controls={false} onClick={togglePlay} />
 				</div>
 			</div>
-			<button className='play-pause-button' onClick={togglePlay}>
-				{isPlaying ? 'Pause' : 'Play'}
-			</button>
+			<div className='video-info'>
+				<p>Duration: {videoMetadata.duration.toFixed(2)} seconds</p>
+				<p>
+					Dimensions: {videoMetadata.width} x {videoMetadata.height}
+				</p>
+			</div>
 		</div>
 	);
 };
