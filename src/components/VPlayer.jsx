@@ -1,7 +1,8 @@
 import React, { useState, useRef } from 'react';
-import '../VPlayer.css'; // Import the CSS file
-import HasvideoGotaudio from './HasvideoGotAudio'; // Import the HasvideoGotaudio function
-
+import '../VPlayer.css';
+import HasvideoGotaudio from './HasvideoGotAudio';
+import WaveSurferPlayer from './WaveformPlayer';
+import Timeline from 'https://unpkg.com/wavesurfer.js@7/dist/plugins/timeline.esm.js';
 const VPlayer = () => {
 	const videoRef = useRef();
 	const canvasRef = useRef();
@@ -86,7 +87,18 @@ const VPlayer = () => {
 					</>
 				)}
 			</div>
-
+			{hasAudio && (
+				<div className='audio-waveform-container'>
+					{/* Include the WaveSurferPlayer component here */}
+					<WaveSurferPlayer
+						height={100}
+						waveColor='rgb(200, 0, 200)'
+						progressColor='rgb(100, 0, 100)'
+						url={videoRef.current?.src}
+						plugins={[Timeline.create()]}
+					/>
+				</div>
+			)}
 			<div className='video-info'>
 				<p>Duration: {videoMetadata.duration.toFixed(2)} seconds</p>
 				<p>

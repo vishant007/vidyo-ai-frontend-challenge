@@ -6,6 +6,7 @@ body {
 	color: aqua;
 	padding: 20px 0;
 	text-align: center;
+	margin-top: 30px;
 }
 
 .header h1 {
@@ -30,6 +31,7 @@ body {
 	color: white;
 
 	margin: 20px auto;
+
 	position: relative;
 	text-decoration: none;
 	font-weight: 600;

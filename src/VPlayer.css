@@ -4,7 +4,7 @@
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
-	height: 100vh;
+	overflow: hidden;
 }
 
 /* Style the play/pause button */
@@ -20,7 +20,6 @@
 
 /* Style the video container */
 .video-container {
-	margin-bottom: 5rem;
 	border: #fff solid 4px;
 	color: white;
 	position: relative;
