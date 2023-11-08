@@ -4,7 +4,9 @@ import VPlayer from './VPlayer';
 const Home = () => {
 	return (
 		<div>
-			<h1>Welcome to Your Video Player App</h1>
+			<div class='header'>
+				<h1>Welcome To Video Player...</h1>
+			</div>
 			<VPlayer />
 		</div>
 	);
