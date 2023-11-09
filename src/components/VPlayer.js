@@ -1,7 +1,7 @@
 // main video player component
 import React, { useState, useRef, useEffect } from 'react';
-import HasvideoGotaudio from './HasvideoGotAudio.js';
-import WaveSurferPlayer from './WaveformPlayer.js';
+import HasvideoGotaudio from './HasvideoGotAudio';
+import WaveSurferPlayer from './WaveformPlayer';
 import Timeline from 'https://unpkg.com/wavesurfer.js@7/dist/plugins/timeline.esm.js';
 import '../VPlayer.css';
 
