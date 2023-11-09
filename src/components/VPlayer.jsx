@@ -40,7 +40,6 @@ const VPlayer = () => {
 				setHasAudio(hasAudio);
 
 				if (!hasAudio) {
-					// If no audio, reset video source to prevent rendering it on the canvas
 					videoRef.current.src = '';
 				} else {
 					// Set the video source only if it has audio
@@ -57,7 +56,7 @@ const VPlayer = () => {
 			} catch (error) {
 				console.error('Error checking for audio:', error);
 				setHasAudio(false);
-				alert('The Following Video does not have audio'); // Set to false if there's an error
+				alert('Please Upload The Video Having Audio'); // Set to false if there's an error
 			}
 		}
 	};
@@ -76,6 +75,14 @@ const VPlayer = () => {
 
 	return (
 		<div className='vplayer-container'>
+			{!videoRef.current?.src && (
+				<div class='container'>
+					<div class='title'>
+						<h1>Your Video Player</h1>
+					</div>
+					<div class='ghost'></div>
+				</div>
+			)}
 			<label htmlFor='file' className='codepen-button'>
 				<input
 					type='file'
@@ -101,26 +108,31 @@ const VPlayer = () => {
 					</>
 				)}
 			</div>
-			{hasAudio && (
-				<div className='audio-waveform-container'>
-					{/* Include the WaveSurferPlayer component here */}
-					<WaveSurferPlayer
-						height={100}
-						waveColor='rgb(200, 0, 200)'
-						progressColor='rgb(100, 0, 100)'
-						url={videoRef.current?.src}
-						plugins={[Timeline.create()]}
-						ref={waveSurferRef}
-					/>
-				</div>
-			)}
+
 			<div className='video-info'>
+				<p>Click On Canvas To Play/Pause The Video</p>
 				<p>Duration: {videoMetadata.duration.toFixed(2)} seconds</p>
 				<p>
 					Dimensions: {videoMetadata.width} x {videoMetadata.height}
 				</p>
 				{hasAudio !== null && hasAudio !== false && <p>Has Audio: Yes</p>}
 			</div>
+			{hasAudio && (
+				<div className='audio-waveform-container'>
+					<div className='waveform-header'>
+						<h2>Waveform Animation For The Audio Of The Video:</h2>
+					</div>
+					{/* Include the WaveSurferPlayer component here */}
+					<WaveSurferPlayer
+						height={130}
+						waveColor='black'
+						progressColor='rgb(255, 165, 0)'
+						url={videoRef.current?.src}
+						plugins={[Timeline.create()]}
+						ref={waveSurferRef}
+					/>
+				</div>
+			)}
 		</div>
 	);
 };
