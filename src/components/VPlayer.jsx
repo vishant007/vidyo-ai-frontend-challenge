@@ -1,8 +1,9 @@
+// main video player component
 import React, { useState, useRef, useEffect } from 'react';
-import '../VPlayer.css';
 import HasvideoGotaudio from './HasvideoGotAudio';
 import WaveSurferPlayer from './WaveformPlayer';
 import Timeline from 'https://unpkg.com/wavesurfer.js@7/dist/plugins/timeline.esm.js';
+import '../VPlayer.css';
 
 const VPlayer = () => {
 	const videoRef = useRef();
@@ -122,7 +123,7 @@ const VPlayer = () => {
 					<div className='waveform-header'>
 						<h2>Waveform Animation For The Audio Of The Video:</h2>
 					</div>
-					{/* Include the WaveSurferPlayer component here */}
+
 					<WaveSurferPlayer
 						height={130}
 						waveColor='black'

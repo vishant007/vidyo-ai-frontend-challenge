@@ -1,3 +1,4 @@
+// responsible for the waveform animation of the audio using wavesurfer.js
 import React, { useRef, useState, useEffect, useCallback } from 'react';
 import WaveSurfer from 'https://unpkg.com/wavesurfer.js@7/dist/wavesurfer.esm.js';
 

@@ -1,3 +1,4 @@
+// responsible to check if the video has audio or not
 function hasAudio(video) {
 	return (
 		video.mozHasAudio ||
