@@ -81,7 +81,13 @@ const VPlayer = () => {
 					<div class='title'>
 						<h1>Your Video Player</h1>
 					</div>
-					<div class='ghost'></div>
+					<div class='ghost'>
+						<div></div>
+						<div></div>
+						<div></div>
+						<div></div>
+						<div></div>
+					</div>
 				</div>
 			)}
 			<label htmlFor='file' className='codepen-button'>
@@ -105,6 +111,26 @@ const VPlayer = () => {
 						<canvas ref={canvasRef} width={650} height={460}></canvas>
 						<div className='video-wrapper'>
 							<video ref={videoRef} controls={false} onClick={togglePlay} />
+							<svg
+								className={`play-pause-svg ${isPlaying ? 'playing' : 'paused'}`}
+								onClick={togglePlay}
+								xmlns='http://www.w3.org/2000/svg'
+								viewBox='0 0 24 24'
+								style={{
+									position: 'absolute',
+									top: '50%',
+									left: '50%',
+									transform: 'translate(-50%, -50%)',
+									width: '50px',
+									height: '50px',
+								}}
+							>
+								{isPlaying ? (
+									<path d='M6 19h4V5H6v14zm8-14v14h4V5h-4z' />
+								) : (
+									<path d='M8 5v14l11-7z' />
+								)}
+							</svg>
 						</div>
 					</>
 				)}
