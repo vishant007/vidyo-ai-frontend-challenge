@@ -1,5 +1,5 @@
 import React from 'react';
-import VPlayer from './VPlayer';
+import VPlayer from './VPlayer.jsx';
 import '../index.css';
 
 const Home = () => {
