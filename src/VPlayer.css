@@ -1,4 +1,3 @@
-/* Center the video canvas and button container */
 .vplayer-container {
 	display: flex;
 	flex-direction: column;
@@ -7,29 +6,16 @@
 	overflow: hidden;
 }
 
-/* Style the play/pause button */
-.play-pause-button {
-	background-color: #007bff;
-	color: white;
-	border: none;
-	padding: 10px 20px;
-	border-radius: 50%;
-	font-size: 20px;
-	cursor: pointer;
-}
-
-/* Style the video container */
 .video-container {
-	border: #fff solid 4px;
+	border: #000000 solid 4px;
 	color: white;
 	position: relative;
-	width: 640px; /* Set the desired canvas width */
-	height: 360px; /* Set the desired canvas height */
+	width: 640px;
+	height: 360px;
 	overflow: hidden;
 	display: flex;
 }
 
-/* Style the video element to fit the container */
 .video-wrapper {
 	position: absolute;
 	top: 0;
@@ -39,14 +25,12 @@
 }
 
 video {
-	width: 100%;
-	height: 100%;
 	object-fit: cover;
 }
 
 .video-info {
-	color: azure;
-	width: 30%; /* Adjust the width as needed */
+	color: black;
+	width: 30%;
 	position: absolute;
 	top: 20;
 	right: 0;

@@ -1,11 +1,13 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import '../VPlayer.css';
 import HasvideoGotaudio from './HasvideoGotAudio';
 import WaveSurferPlayer from './WaveformPlayer';
 import Timeline from 'https://unpkg.com/wavesurfer.js@7/dist/plugins/timeline.esm.js';
+
 const VPlayer = () => {
 	const videoRef = useRef();
 	const canvasRef = useRef();
+	const waveSurferRef = useRef();
 	const [isPlaying, setIsPlaying] = useState(false);
 	const [videoMetadata, setVideoMetadata] = useState({
 		duration: 0,
@@ -13,6 +15,18 @@ const VPlayer = () => {
 		height: 0,
 	});
 	const [hasAudio, setHasAudio] = useState(null); // To track whether the video has audio
+
+	useEffect(() => {
+		if (waveSurferRef.current && videoRef.current) {
+			if (isPlaying) {
+				videoRef.current.play();
+				waveSurferRef.current.play();
+			} else {
+				videoRef.current.pause();
+				waveSurferRef.current.pause();
+			}
+		}
+	}, [isPlaying]);
 
 	const loadVideo = async (event) => {
 		const file = event.target.files[0];
@@ -43,7 +57,7 @@ const VPlayer = () => {
 			} catch (error) {
 				console.error('Error checking for audio:', error);
 				setHasAudio(false);
-				alert('The Following Video doesnot have audio'); // Set to false if there's an error
+				alert('The Following Video does not have audio'); // Set to false if there's an error
 			}
 		}
 	};
@@ -96,6 +110,7 @@ const VPlayer = () => {
 						progressColor='rgb(100, 0, 100)'
 						url={videoRef.current?.src}
 						plugins={[Timeline.create()]}
+						ref={waveSurferRef}
 					/>
 				</div>
 			)}
