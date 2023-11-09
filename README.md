@@ -1,6 +1,15 @@
 # Vidyo-AI-Frontend-Challenge
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+- This project was made using React.JS-18.2.0.
+- OS Used while creating project: Ubuntu 22.
+
+## Features Of Project:
+
+- Takes video file as an input.
+- Displays video metadata including duration on UI.
+- Displays video on the screen after the user has selected the file using canvas element. Added play/pause button in the middle of the video container to play/pause video on clicking.
+- Detects if video has audio or not, if it has not has audio track it will not allow user to upload the video.
+- Displays the waveform for the audio 
 
 ## Progression Of Project: 
 
