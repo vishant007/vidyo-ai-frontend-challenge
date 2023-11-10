@@ -9,7 +9,8 @@
 - Displays video metadata including duration on UI.
 - Displays video on the screen after the user has selected the file using canvas element. Added play/pause button in the middle of the video container to play/pause video on clicking.
 - Detects if video has audio or not, if it has not has audio track it will not allow user to upload the video.
-- Displays the waveform for the audio 
+- Displays the waveform for the audio
+- Find sample videos for testing in project-media folder
 
 ## Progression Of Project: 
 
