@@ -1,4 +1,4 @@
-# Vidyo-AI-Frontend-Challenge
+# your-video-and-audio-player
 
 - This project was made using React.JS-18.2.0.
 - OS Used while creating project: Ubuntu 22.
